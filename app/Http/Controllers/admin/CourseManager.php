@@ -14,7 +14,7 @@ class CourseManager extends Controller
     public function create(Request $request)
     {
         $topics = Topic::get();
-        return view('admin.CourseManager.add-course' , ['title' => 'Thêm một khóa học mới cho trang web của bạn ?'] , compact('topics'));
+        return view('admin.CourseManager.add-course' , ['title' => 'Thêm một khóa học mới?'] , compact('topics'));
     }
 
     public function store(Request $request)
@@ -80,11 +80,11 @@ class CourseManager extends Controller
         if($key = request()->keys){
             $courses = Course::orderBy('created_at' , 'DESC')->where('course_share' , $key)->search()->paginate(10);
             return view('admin.CourseManager.list-course' , 
-                        ['title' => 'Chỉnh sửa thông tin khóa học cho trang web của bạn ?'] , compact('courses' , 'stt'));
+                        ['title' => 'Chỉnh sửa thông tin khóa học'] , compact('courses' , 'stt'));
         }else{
             $courses = Course::orderBy('created_at' , 'DESC')->search()->paginate(10);
             return view('admin.CourseManager.list-course' ,
-                        ['title' => 'Chỉnh sửa thông tin khóa học cho trang web của bạn ?'] , compact('courses' , 'stt'));
+                        ['title' => 'Chỉnh sửa thông tin khóa học'] , compact('courses' , 'stt'));
         }
     }
 
