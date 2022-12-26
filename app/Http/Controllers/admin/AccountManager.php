@@ -18,7 +18,7 @@ class AccountManager extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => 'bail|required|alpha|regex:/(^[a-z]+[a-z\\-]*$)/u|min:6|max:30|unique:users,username',
+            'username' => 'bail|required|alpha|regex:/(^[a-z][a-zA-Z0-9]*$)/u|min:6|max:30|unique:users,username',
             'passcode' => 'bail|required|min:6|max:30',
             'user_code' => '',
             'email' => 'bail|required|unique:users,email',
