@@ -42,7 +42,7 @@ class CourseContentManager extends Controller
         $request->validate([
             'overview_content' => 'bail|required|min:17'
         ] , [
-            'overview_content.required' => 'Nội dung không được bỏ trống',
+            'overview_content.required' => 'Nội dung tổng quan không được bỏ trống',
             'overview_content.min' => 'Nội dung tối thiểu là 10 kí tự'
         ]);
         $course_id = $request->get('course_id');
@@ -77,7 +77,7 @@ class CourseContentManager extends Controller
         $request->validate([
             'index_content' => 'bail|required|min:10'
         ],[
-            'index_content.required' => 'Nội dung không được bỏ trống',
+            'index_content.required' => 'Nội dung mục lục không được bỏ trống',
             'index_content.min' => 'Nội dung tối thiểu là 10 kí tự'
         ]);
         $check_index_content = DB::table('course_index_content')->where('course_id' , $course_id)->where('index_content' , $index_content)->count();
@@ -98,7 +98,7 @@ class CourseContentManager extends Controller
         $request->validate([
             'chapter_content' => 'bail|required|min:10'
         ],[
-            'chapter_content.required' => 'Nội dung không được bỏ trống',
+            'chapter_content.required' => 'Nội dung chương học không được bỏ trống',
             'chapter_content.min' => 'Nội dung tối thiểu là 10 kí tự'
         ]);
         $course_id = $request->get('course_id');
