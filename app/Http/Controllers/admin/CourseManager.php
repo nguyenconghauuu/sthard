@@ -79,10 +79,12 @@ class CourseManager extends Controller
         $stt = 1;
         if($key = request()->keys){
             $courses = Course::orderBy('created_at' , 'DESC')->where('course_share' , $key)->search()->paginate(10);
-            return view('admin.CourseManager.list-course' , ['title' => 'Chỉnh sửa thông tin khóa học cho trang web của bạn ?'] , compact('courses' , 'stt'));
+            return view('admin.CourseManager.list-course' , 
+                        ['title' => 'Chỉnh sửa thông tin khóa học cho trang web của bạn ?'] , compact('courses' , 'stt'));
         }else{
             $courses = Course::orderBy('created_at' , 'DESC')->search()->paginate(10);
-            return view('admin.CourseManager.list-course' , ['title' => 'Chỉnh sửa thông tin khóa học cho trang web của bạn ?'] , compact('courses' , 'stt'));
+            return view('admin.CourseManager.list-course' ,
+                        ['title' => 'Chỉnh sửa thông tin khóa học cho trang web của bạn ?'] , compact('courses' , 'stt'));
         }
     }
 
